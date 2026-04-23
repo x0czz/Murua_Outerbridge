@@ -17,10 +17,13 @@ Ciencia-abierta-2026/
  |  |- settings.json
  |- README.md
  |- index.html
- |- index.pdf
+ |- index.log
  |- index.qmd
+ |- index.tex
  |- input/
  |  |- bib/
+ |  |  |- apa.csl
+ |  |  |- ciencia_abierta.bib
  |  |- data/
  |  |  |- original/
  |  |  |  |- 0A_Listado_Variables_Global_ELSOC_v2022.xlsx
