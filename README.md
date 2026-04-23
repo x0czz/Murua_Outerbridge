@@ -12,7 +12,7 @@ Este proyecto se organiza de la siguiente manera:
 
 <!-- WORKING_TREE_START -->
 ```text
-template-ciencia-abierta-2026/
+Ciencia-abierta-2026/
  |- .vscode/
  |  |- settings.json
  |- README.md
@@ -23,6 +23,12 @@ template-ciencia-abierta-2026/
  |  |- bib/
  |  |- data/
  |  |  |- original/
+ |  |  |  |- 0A_Listado_Variables_Global_ELSOC_v2022.xlsx
+ |  |  |  |- ELSOC_Long.RData
+ |  |  |  |- ELSOC_Wide.RData
+ |  |  |  |- Perfiles_Votante.R
+ |  |  |  |- perfiles.RData
+ |  |  |  |- perfiles_participacion.RData
  |  |  |- proc/
  |  |- images/
  |  |- original-code/
@@ -32,6 +38,7 @@ template-ciencia-abierta-2026/
  |  |- graphs/
  |  |- tables/
  |- processing/
+ |  |- 04-cohesion-social.Rmd
  |  |- README-prod.md
  |  |- prod_analysis.Rmd
  |  |- prod_analysis.html
