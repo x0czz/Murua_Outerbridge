@@ -12,10 +12,11 @@ Este proyecto se organiza de la siguiente manera:
 
 <!-- WORKING_TREE_START -->
 ```text
-Ciencia-abierta-2026/
+Murua_Outerbridge/
  |- .vscode/
  |  |- settings.json
  |- README.md
+ |- explorar_filtro.R
  |- index.html
  |- index.log
  |- index.qmd
@@ -28,11 +29,15 @@ Ciencia-abierta-2026/
  |  |  |- original/
  |  |  |  |- 0A_Listado_Variables_Global_ELSOC_v2022.xlsx
  |  |  |  |- ELSOC_Long.RData
+ |  |  |  |- ELSOC_Long_2016_2023.RData
  |  |  |  |- ELSOC_Wide.RData
+ |  |  |  |- ELSOC_Wide_2016_2023.RData
  |  |  |  |- Perfiles_Votante.R
  |  |  |  |- perfiles.RData
  |  |  |  |- perfiles_participacion.RData
  |  |  |- proc/
+ |  |  |  |- ELSOC_selected_full.RDS
+ |  |  |  |- ELSOC_selected_no_ola5.RDS
  |  |- images/
  |  |- original-code/
  |- libs/
@@ -47,6 +52,7 @@ Ciencia-abierta-2026/
  |  |- prod_analysis.html
  |  |- prod_prep.Rmd
  |  |- prod_prep.html
+ |- script visualizacion
  |- scripts/
  |  |- update-working-tree.sh
 ```
