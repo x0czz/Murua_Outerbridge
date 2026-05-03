@@ -242,8 +242,6 @@ plot_conf_long_weighted <- function(data, value_col, title, subtitle) {
 
 ### Reproducción
 
-- Generación de tabla o figura a reproducir.
-
 A pesar de no haber llegado al mismo n de individuos que el estudio original, se procedió a generar los gráficos de barra y serie temporal para el grado de confianza en el Congreso Nacional, utilizando la muestra obtenida luego de aplicar el filtro de no atrición. Luego de analizar el codigo proporcionado por los investigadores del coes, nos dimos cuenta de que para los analisis fueron consideradas ciertas ponderaciones por diseño muestral que no estan especificadas en el documento. Algo que dificulta particularmente la reproducibilidad, ya de no contar con el codigo original, seria imposible la replicacion.
 
 Los gráficos de reproducción que se presentan a continuación corresponden al método final (bloques finales), que utiliza el mismo tratamiento de casos perdidos y ponderación de diseño en todos los indicadores.
