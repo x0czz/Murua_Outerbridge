@@ -1,6 +1,6 @@
 ---
 title: "Reporte de Reproducibilidad"
-subtitle: "Artículo: Radiografía de la Cohesión Social en Chile 2016-2023.
+subtitle: "Radiografía de la Cohesión Social en Chile 2016-2023.
  <br><a href='https://github.com/x0czz/Murua_Outerbridge' target='_blank' ><i class='bi bi-github'></i></a>" # reemplazar con dirección al repositorio del proyecto
 author:
   - name: Nicolás Outerbridge
@@ -61,8 +61,7 @@ Considerando que el COES suele ser proyectado como un estándar en cuanto a cali
 
 # Evaluación de reproducibilidad
 
-  -   **Disponibilidad de datos**: Si bien el informe @_radiografia_2024 no ofrece descarga directa de las bases de datos dentro del documento, estas son fácilmente accesibles mediante una búsqueda rápida en la web. La fuente de información de este reporte es el Estudio Longitudinal Social de Chile (ELSOC), desarrollado por el Centro de Estudios de Conflicto y Cohesión Social (COES).
-  
+  -   **Disponibilidad de datos**: Si bien el informe @_radiografia_2024 no ofrece descarga directa de las bases de datos dentro del documento, estas son fácilmente accesibles mediante una búsqueda rápida en la web. La fuente de información de este reporte es el Estudio Longitudinal Social de Chile (ELSOC), desarrollado por el Centro de Estudios de Conflicto y Cohesión Social (COES). 
   La institución mantiene un firme compromiso con la transparencia y el uso público de su información; por ello las bases de datos de las siete olas que componen el estudio están disponibles de manera abierta para el público general en los [repositorios digitales](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LD4BPH) de su sitio web.
 
   -   **Disponibilidad de código**: El documento de la Radiografía de la Cohesión Social no proporciona código utilizado para el procesamiento y análisis de los datos. Si bien en general COES mantiene un compromiso con los principios de ciencia abierta, para esta publicacion en particular no se encuentra el codigo utilizado para el procesamiento de los datos y la generación de los resultados presentados en el informe. Este tampoco se encuentra disponible en los repositorios de github de los investigadores señalados como autores; sin embargo, pudimos acceder a el mediante el contacto directo con el investigador principal.
@@ -73,7 +72,7 @@ Considerando que el COES suele ser proyectado como un estándar en cuanto a cali
 
 # Análisis reproducible
 
-A continuación, nos proponemos replicar el apartado de «Confianza en las instituciones». Este bloque se compone de cuatro indicadores: confianza en el Congreso Nacional, en el Poder Judicial, en los Partidos Políticos y en Carabineros.
+A continuación, nos proponemos replicar el apartado de "Confianza en las instituciones". Este bloque se compone de cuatro indicadores: confianza en el Congreso Nacional, en el Poder Judicial, en los Partidos Políticos y en Carabineros.
 
 Para cada uno de estos indicadores se presentan dos visualizaciones: un gráfico de barras que muestra la distribución de respuestas de la última observación disponible (Ola 7 para la muestra original y Ola 5 para la muestra de refresco) y una serie temporal que ilustra la evolución de las respuestas a lo largo de las distintas mediciones.
 
@@ -81,8 +80,8 @@ Para cada uno de estos indicadores se presentan dos visualizaciones: un gráfico
 
 ![Congreso nacional](input/images/congreso%20barra.png)
 ![Congreso nacional serie temporal](input/images/congreso%20serie.png)
-![Poder judicial](input/images/poder%20judicial%20barra.png)
-![Poder judicial serie temporal](input/images/poder%20judicial%20serie.png)
+![Poder judicial](input/images/judicial%20barra.png)
+![Poder judicial serie temporal](input/images/judicial%20serie.png)
 ![Partidos politicos](input/images/partidos%20barra.png)
 ![Partidos politicos serie temporal](input/images/partidos%20serie.png)
 ![Carabineros](input/images/carabineros%20barra.png)
@@ -96,7 +95,7 @@ Para la reproducción de los análisis de interés, se realizó una lectura minu
 
 No fue posible reproducir el estudio sin el código original debido a la falta de especificación en ciertos aspectos del procesamiento; concretamente, el estudio utiliza ponderadores por diseño muestral que no se encuentran detallados en el informe. Sin embargo, una vez obtenido el acceso al código, se logró comprender el flujo de trabajo y replicar los hallazgos con exactitud.
 
-En los siguientes apartados se presenta la replicación realizada tras acceder al codigo. Por otro lado, en la sección de anexos, se incluye el intento de reproducción llevado a cabo utilizando únicamente la información disponible en el documento publicado.
+En los siguientes apartados se presenta la replicación realizada tras acceder al codigo. Por otro lado, en la sección de anexos (ver @sec-anexos), se incluye el intento de reproducción llevado a cabo utilizando únicamente la información disponible en el documento publicado.
 
 
 ### Filtrado de la muestra
@@ -107,7 +106,7 @@ A partir de lo señalado en el documento, tras el filtrado se debería obtener u
 
 Es probable que, para efectos del etiquetado en el informe, los autores hayan mantenido las cifras de una edición previa que utilizaba una versión anterior de los datos. Esta hipótesis se refuerza al notar que el n informado es idéntico al de estudios que utilizan solo hasta la Ola 6, omitiendo así la atrición esperada al añadir una nueva ola al estudio longitudinal. Refuerza esta tesis el hecho de que la totalidad de los gráficos pudo ser reproducida con éxito utilizando la muestra de 1.176 y 661 individuos, lo que sugiere que el procesamiento de los datos y la generación de resultados se realizó efectivamente con este grupo, a pesar de lo declarado en el texto del informe.
 
-En primera instancia, se intentó una reproducción de los gráficos sin contar con el código (ver anexos). Tras acceder posteriormente al código original, se constató que el procesamiento incluía ciertos ponderadores por diseño muestral no especificados en el documento. Esta omisión imposibilita la reproducibilidad, ya que sin el código, la replicación exacta de los resultados habría sido imposible.
+Tras acceder posteriormente al código original, se constató que el procesamiento incluía ciertos ponderadores por diseño muestral no especificados en el documento. Esta omisión imposibilita la reproducibilidad, ya que sin el código, la replicación exacta de los resultados habría sido imposible.
 
 ### Procesamiento
 
@@ -117,7 +116,7 @@ Para validar la consistencia del filtro, se aplicaron tres métodos de conteo eq
 
 En cuanto al tratamiento de casos perdidos en las variables de confianza (c05_07, c05_05, c05_02 y c05_03), se replicaron los procedimientos del código original: los valores menores a 1 se recodificaron como NS/NR. Para la generación de gráficos, tanto las categorías NS/NR como los valores NA se excluyeron antes del cálculo de proporciones; de este modo, los porcentajes se interpretan exclusivamente sobre el total de respuestas válidas. Para esto, se utilizó la misma función `case_when` definida en el codigo original para recodificar las variables de confianza en tres categorías: "Nada", "Poca" y "Algo, bastante o mucha". Esta recodificación se aplicó tanto para el gráfico de barras (última observación) como para la serie temporal.
 
-Finalmente, las estimaciones se calcularon mediante ponderación por diseño muestral utilizando el paquete survey. El diseño se definió con ids = ~segmento_disenno, weights = ~ponderador02, strata = ~estrato_disenno y nest = TRUE. Por consiguiente, las frecuencias y proporciones reportadas corresponden a resultados ponderados (svytable) y no a conteos crudos de casos. Es por esto ultimo que no fue posible reproducir los resultados de forma precisa previo al acceso al código original.
+La revisión directa del código original muestra que, para los gráficos, se utiliza un único ponderador: `ponderador02`. En términos simples, este ponderador asigna a cada persona un “peso estadístico” para que la muestra represente mejor a la población: un peso mayor a 1 hace que ese caso influya más en el resultado y un peso menor a 1 hace que influya menos. Además, el código usa `segmento_disenno` y `estrato_disenno` como parte del diseño muestral. `segmento_disenno` agrupa a las personas que vienen del mismo bloque o tramo de muestreo, y `estrato_disenno` separa la muestra en grupos parecidos antes de hacer los cálculos. Por eso, una categoría puede verse más alta no solo por tener más casos, sino también porque quienes están en esa categoría tienen, en promedio, pesos más altos. En conjunto, el ponderador y estas dos variables hacen que las frecuencias y porcentajes reportados en los gráficos sean ponderados y no conteos crudos.
 
 ```{r, warning=FALSE, message=FALSE}
 library(tidyverse)
@@ -253,28 +252,32 @@ plot_conf_long_weighted <- function(data, value_col, title, subtitle) {
 
 ### Reproducción
 
-A pesar de no haber llegado al mismo n de individuos que el estudio original, se procedió a generar los gráficos de barra y serie temporal para el grado de confianza en el Congreso Nacional, utilizando la muestra obtenida luego de aplicar el filtro de no atrición. Luego de analizar el codigo proporcionado por los investigadores del coes, nos dimos cuenta de que para los analisis fueron consideradas ciertas ponderaciones por diseño muestral que no estan especificadas en el documento. Algo que dificulta particularmente la reproducibilidad, ya de no contar con el codigo original, seria imposible la replicacion.
+A pesar de no haber alcanzado el tamaño muestral del estudio original, se procedió a la generación de los gráficos de barra y series de tiempo para medir el grado de confianza en las instituciones, utilizando la submuestra resultante tras aplicar el filtro de no atrición. No obstante, tras el análisis del código proporcionado por los investigadores del COES, se identificó la aplicación de ponderadores por diseño muestral no especificados en la metodología documentada. Esta omisión técnica representa un obstáculo crítico para la reproducibilidad, ya que, en ausencia del código fuente original, la replicación exacta de los resultados habría sido imposible.
+
+En los gráficos de barra, el procedimiento parte por filtrar a las personas sin atrición y quedarse con su última ola observada usando `group_by(idencuesta)`, `slice_max(order_by = ola, n = 1)` y `ungroup()`. Después, la variable de confianza se recodifica con `rec_conf()`, se elimina la categoría `NS/NR`, y se construye el diseño muestral con `svydesign()` usando `segmento_disenno` como conglomerado, `ponderador02` como peso y `estrato_disenno` como estrato. Con ese diseño, se calcula `svytable(~conf, ...)`, se transforma el resultado a tabla con `as.data.frame()`, se calculan proporciones con `mutate(prop = ...)`, se ordenan las categorías con `factor()`, y finalmente se grafica con `ggplot()` usando `geom_col()` y `geom_text()`.
+
+En los gráficos longitudinales, el flujo es muy parecido, pero en vez de resumir a la última ola se conserva toda la serie temporal de cada persona. Se recodifica la confianza con `rec_conf()`, se elimina `NS/NR`, se arma el mismo diseño muestral con `svydesign()`, y luego se calcula `svytable(~conf + ola, ...)`. Después se convierte el resultado a formato tabular con `as.data.frame()`, se transforma `ola` a número con `as.numeric(as.character(ola))`, se ordenan las categorías con `factor()`, y se calcula la proporción dentro de cada ola con `group_by(ola)` y `mutate(prop = Freq / sum(Freq, na.rm = TRUE))`. Como paso final, se limpian faltantes con `drop_na(prop)` y se grafica con `ggplot()` usando `geom_line()`, `geom_point()` y `geom_text()`. En esta parte no se usa `pivot_longer`; el código trabaja directamente con las tablas que devuelve `svytable()`.
 
 ```{r final-c05_07-bar, fig.cap='Final — Congreso (barra, última observación)'}
-ell_tmp <- elsoc_selected_full %>%
-  filter(tipo_atricion == 1) %>%
-  filter(!is.na(ola)) %>%
-  group_by(idencuesta) %>%
-  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%
+ell_tmp <- elsoc_selected_full %>%  # base sin atricion para la muestra final
+  filter(tipo_atricion == 1) %>%  # conserva solo casos con seguimiento completo
+  filter(!is.na(ola)) %>%  # descarta registros sin ola
+  group_by(idencuesta) %>%  # trabaja persona por persona
+  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%  # toma la ultima ola observada
   ungroup() %>%
-  mutate(conf = rec_conf(c05_07))
+  mutate(conf = rec_conf(c05_07))  # recodifica la confianza en 3 categorias
 
-ell.svy <- svydesign(ids = ~segmento_disenno,
-                     weights = ~ponderador02,
-                     strata = ~estrato_disenno,
+ell.svy <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                     weights = ~ponderador02,  # ponderador expandido
+                     strata = ~estrato_disenno,  # estrato del disenio
                      data = ell_tmp,
                      nest = TRUE)
-t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%
+t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%  # conteo ponderado por categoria
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # excluye faltantes y no sabe/no responde
   mutate(prop = round(Freq / sum(Freq, na.rm = TRUE), 2),
     pct_label = scales::percent(prop, accuracy = .1)) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de las barras
 
 ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
   geom_col(width = 0.35) +
@@ -294,23 +297,23 @@ ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
 ```
 
 ```{r final-c05_07-long, fig.cap='Final — Congreso (serie temporal)'}
-ell_tmp <- elsoc_selected_full %>% filter(tipo_atricion == 1) %>%
-  mutate(conf = rec_conf(c05_07))
+ell_tmp <- elsoc_selected_full %>% filter(tipo_atricion == 1) %>%  # conserva la submuestra sin atricion
+  mutate(conf = rec_conf(c05_07))  # recodifica la confianza para todas las olas
 
-ell.svy <- svydesign(ids = ~segmento_disenno,
-                     weights = ~ponderador02,
-                     strata = ~estrato_disenno,
+ell.svy <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                     weights = ~ponderador02,  # ponderador expandido
+                     strata = ~estrato_disenno,  # estrato del disenio
                      data = ell_tmp,
                      nest = TRUE)
-t <- as.data.frame(svytable(~conf + ola, design = ell.svy)) %>%
+t <- as.data.frame(svytable(~conf + ola, design = ell.svy)) %>%  # conteos ponderados por ola y categoria
   mutate(ola = as.numeric(as.character(ola))) %>%
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # elimina valores no validos
   group_by(ola) %>%
-  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%
+  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%  # calcula proporciones dentro de cada ola
   ungroup() %>%
   drop_na(prop) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # mantiene el orden de la serie
 
 ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::percent(prop, accuracy = 1))) +
   geom_line(linewidth = 0.8) +
@@ -332,25 +335,25 @@ ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::per
 ```
 
 ```{r final-c05_05-bar, fig.cap='Final — Poder Judicial (barra, última observación)'}
-ell_tmp <- elsoc_selected_full %>%
-  filter(tipo_atricion == 1) %>%
-  filter(!is.na(ola)) %>%
-  group_by(idencuesta) %>%
-  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%
+ell_tmp <- elsoc_selected_full %>%  # base sin atricion para la muestra final
+  filter(tipo_atricion == 1) %>%  # conserva solo casos con seguimiento completo
+  filter(!is.na(ola)) %>%  # descarta registros sin ola
+  group_by(idencuesta) %>%  # trabaja persona por persona
+  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%  # toma la ultima ola observada
   ungroup() %>%
-  mutate(conf = rec_conf(c05_05))
+  mutate(conf = rec_conf(c05_05))  # recodifica la confianza en 3 categorias
 
-ell.svy <- svydesign(ids = ~segmento_disenno,
-                     weights = ~ponderador02,
-                     strata = ~estrato_disenno,
+ell.svy <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                     weights = ~ponderador02,  # ponderador expandido
+                     strata = ~estrato_disenno,  # estrato del disenio
                      data = ell_tmp,
                      nest = TRUE)
-t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%
+t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%  # conteo ponderado por categoria
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # excluye faltantes y no sabe/no responde
   mutate(prop = round(Freq / sum(Freq, na.rm = TRUE), 2),
     pct_label = scales::percent(prop, accuracy = .1)) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de las barras
 
 ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
   geom_col(width = 0.35) +
@@ -369,28 +372,28 @@ ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
 ```
 
 ```{r final-c05_05-long, fig.cap='Final — Poder Judicial (serie temporal)'}
-ell_tmp_full <- elsoc_selected_full %>%
+ell_tmp_full <- elsoc_selected_full %>%  # conserva toda la serie sin atricion
   filter(tipo_atricion == 1, !is.na(ola)) %>%
-  mutate(conf = rec_conf(c05_05))
+  mutate(conf = rec_conf(c05_05))  # recodifica la confianza para todas las olas
 
-ell.svy_full <- svydesign(ids = ~segmento_disenno,
-                          weights = ~ponderador02,
-                          strata = ~estrato_disenno,
+ell.svy_full <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                          weights = ~ponderador02,  # ponderador expandido
+                          strata = ~estrato_disenno,  # estrato del disenio
                           data = ell_tmp_full,
                           nest = TRUE)
 
 # Conteos ponderados por categoría (svytable excluye NA en la variable de interés)
-t_counts <- as.data.frame(svytable(~conf + ola, design = ell.svy_full))
+t_counts <- as.data.frame(svytable(~conf + ola, design = ell.svy_full))  # conteos ponderados por categoria y ola
 
 t <- t_counts %>%
   mutate(ola = as.numeric(as.character(ola))) %>%
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # elimina categorias no validas
   group_by(ola) %>%
-  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%
+  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%  # calcula proporciones por ola
   ungroup() %>%
   drop_na(prop) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de la serie
 
 ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::percent(prop, accuracy = 1))) +
   geom_line(linewidth = 0.8) +
@@ -412,25 +415,25 @@ ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::per
 ```
 
 ```{r final-c05_02-bar, fig.cap='Final — Partidos (barra, última observación)'}
-ell_tmp <- elsoc_selected_full %>%
-  filter(tipo_atricion == 1) %>%
-  filter(!is.na(ola)) %>%
-  group_by(idencuesta) %>%
-  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%
+ell_tmp <- elsoc_selected_full %>%  # base sin atricion para la muestra final
+  filter(tipo_atricion == 1) %>%  # conserva solo casos con seguimiento completo
+  filter(!is.na(ola)) %>%  # descarta registros sin ola
+  group_by(idencuesta) %>%  # trabaja persona por persona
+  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%  # toma la ultima ola observada
   ungroup() %>%
-  mutate(conf = rec_conf(c05_02))
+  mutate(conf = rec_conf(c05_02))  # recodifica la confianza en 3 categorias
 
-ell.svy <- svydesign(ids = ~segmento_disenno,
-                     weights = ~ponderador02,
-                     strata = ~estrato_disenno,
+ell.svy <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                     weights = ~ponderador02,  # ponderador expandido
+                     strata = ~estrato_disenno,  # estrato del disenio
                      data = ell_tmp,
                      nest = TRUE)
-t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%
+t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%  # conteo ponderado por categoria
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # excluye faltantes y no sabe/no responde
   mutate(prop = round(Freq / sum(Freq, na.rm = TRUE), 2),
     pct_label = scales::percent(prop, accuracy = .1)) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de las barras
 
 ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
   geom_col(width = 0.35) +
@@ -449,13 +452,13 @@ ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
 ```
 
 ```{r final-c05_02-long, fig.cap='Final — Partidos (serie temporal)'}
-ell_tmp_full <- elsoc_selected_full %>%
+ell_tmp_full <- elsoc_selected_full %>%  # conserva toda la serie sin atricion
   filter(tipo_atricion == 1, !is.na(ola)) %>%
-  mutate(conf = rec_conf(c05_02))
+  mutate(conf = rec_conf(c05_02))  # recodifica la confianza para todas las olas
 
-ell.svy_full <- svydesign(ids = ~segmento_disenno,
-                          weights = ~ponderador02,
-                          strata = ~estrato_disenno,
+ell.svy_full <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                          weights = ~ponderador02,  # ponderador expandido
+                          strata = ~estrato_disenno,  # estrato del disenio
                           data = ell_tmp_full,
                           nest = TRUE)
 
@@ -464,12 +467,12 @@ t_counts <- as.data.frame(svytable(~conf + ola, design = ell.svy_full))
 t <- t_counts %>%
   mutate(ola = as.numeric(as.character(ola))) %>%
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # elimina categorias no validas
   group_by(ola) %>%
-  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%
+  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%  # calcula proporciones por ola
   ungroup() %>%
   drop_na(prop) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de la serie
 
 ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::percent(prop, accuracy = 1))) +
   geom_line(linewidth = 0.8) +
@@ -491,25 +494,25 @@ ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::per
 ```
 
 ```{r final-c05_03-bar, fig.cap='Final — Carabineros (barra, última observación)'}
-ell_tmp <- elsoc_selected_full %>%
-  filter(tipo_atricion == 1) %>%
-  filter(!is.na(ola)) %>%
-  group_by(idencuesta) %>%
-  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%
+ell_tmp <- elsoc_selected_full %>%  # base sin atricion para la muestra final
+  filter(tipo_atricion == 1) %>%  # conserva solo casos con seguimiento completo
+  filter(!is.na(ola)) %>%  # descarta registros sin ola
+  group_by(idencuesta) %>%  # trabaja persona por persona
+  slice_max(order_by = ola, n = 1, with_ties = FALSE) %>%  # toma la ultima ola observada
   ungroup() %>%
-  mutate(conf = rec_conf(c05_03))
+  mutate(conf = rec_conf(c05_03))  # recodifica la confianza en 3 categorias
 
-ell.svy <- svydesign(ids = ~segmento_disenno,
-                     weights = ~ponderador02,
-                     strata = ~estrato_disenno,
+ell.svy <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                     weights = ~ponderador02,  # ponderador expandido
+                     strata = ~estrato_disenno,  # estrato del disenio
                      data = ell_tmp,
                      nest = TRUE)
-t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%
+t <- as.data.frame(svytable(~conf, design = ell.svy)) %>%  # conteo ponderado por categoria
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # excluye faltantes y no sabe/no responde
   mutate(prop = round(Freq / sum(Freq, na.rm = TRUE), 2),
     pct_label = scales::percent(prop, accuracy = .1)) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de las barras
 
 ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
   geom_col(width = 0.35) +
@@ -528,27 +531,27 @@ ggplot(t, aes(x = conf, y = prop, fill = conf, label = pct_label)) +
 ```
 
 ```{r final-c05_03-long, fig.cap='Final — Carabineros (serie temporal)'}
-ell_tmp_full <- elsoc_selected_full %>% filter(tipo_atricion == 1, !is.na(ola)) %>%
-  mutate(conf = rec_conf(c05_03))
+ell_tmp_full <- elsoc_selected_full %>% filter(tipo_atricion == 1, !is.na(ola)) %>%  # conserva toda la serie sin atricion
+  mutate(conf = rec_conf(c05_03))  # recodifica la confianza para todas las olas
 
-ell.svy_full <- svydesign(ids = ~segmento_disenno,
-                          weights = ~ponderador02,
-                          strata = ~estrato_disenno,
+ell.svy_full <- svydesign(ids = ~segmento_disenno,  # conglomerado de muestreo
+                          weights = ~ponderador02,  # ponderador expandido
+                          strata = ~estrato_disenno,  # estrato del disenio
                           data = ell_tmp_full,
                           nest = TRUE)
 
-# Conteos ponderados por categoría (svytable excluye NA en la variable de interés)
+# Conteos ponderados por categoría y ola.
 t_counts <- as.data.frame(svytable(~conf + ola, design = ell.svy_full))
 
 t <- t_counts %>%
   mutate(ola = as.numeric(as.character(ola))) %>%
   mutate(conf = as.character(conf)) %>%
-  filter(!is.na(conf), conf != "NS/NR") %>%
+  filter(!is.na(conf), conf != "NS/NR") %>%  # elimina categorias no validas
   group_by(ola) %>%
-  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%
+  mutate(prop = Freq / sum(Freq, na.rm = TRUE)) %>%  # calcula proporciones por ola
   ungroup() %>%
   drop_na(prop) %>%
-  mutate(conf = factor(conf, levels = conf_levels))
+  mutate(conf = factor(conf, levels = conf_levels))  # fija el orden de la serie
 
 ggplot(t, aes(x = ola, y = prop, color = conf, group = conf, label = scales::percent(prop, accuracy = 1))) +
   geom_line(linewidth = 0.8) +
@@ -578,9 +581,9 @@ Asimismo, el proceso dio cuenta a su vez de que la transparencia no debiese limi
 Por otro lado, se identificó una barrera de inteligibilidad. Aun tras obtener el código, este presenta una estructura poco intuitiva y poca documentación. Por lo que obligó a la mediación de herramientas de inteligencia artificial para descifrar el funcionamiento del codigo.
 
 En conjunto, a partir de este conjunto de barreras, concluimos que, sin un acceso abierto y documentacion metodológica clara, el compromiso con la transparencia que el mismo cores declara corre riesgo.
-# Recomendaciones
 
-Para fortalecer los estándares de reproducibilidad de futuras investigaciones, recomendamos transitar hacia un modelo de transparencia proactiva que elimine las barreras de acceso. Se recomienda la adopción sistemática de repositorios públicos, como GitHub para garantizar la disponibilidad permanente del código sin depender de la comunicación directa con los autores. Ademas, consideramos que la apertura de archivos debe ir acompañada de una documentación técnica que detalle explícitamente los criterios de ponderación por diseño muestral y el tratamiento de casos perdidos, asegurando que el reporte guarde consistencia con aquello reportado. Finalmente, recomendariamos el desarrollo de manuales complementarios o archivos README que expliciten la estructura del procesamiento. Este enfoque no solo facilitaría el escrutinio independiente, sino que tambien evitaria la necesidad de recurrir a herramientas externas de interpretación..
+# Recomendaciones
+Para fortalecer los estándares de reproducibilidad de futuras investigaciones, recomendamos transitar hacia un modelo de transparencia proactiva que elimine las barreras de acceso. Se recomienda la adopción sistemática de repositorios públicos, como GitHub para garantizar la disponibilidad permanente del código sin depender de la comunicación directa con los autores. Ademas, consideramos que la apertura de archivos debe ir acompañada de una documentación técnica que detalle explícitamente los criterios de ponderación por diseño muestral y el tratamiento de casos perdidos, asegurando que el reporte guarde consistencia con aquello reportado. Finalmente, recomendariamos el desarrollo de manuales complementarios o archivos README que expliciten la estructura del procesamiento. Este enfoque no solo facilitaría el escrutinio independiente, sino que tambien evitaria la necesidad de recurrir a herramientas externas de interpretación.
 
 # Referencias
 
@@ -589,8 +592,7 @@ Para fortalecer los estándares de reproducibilidad de futuras investigaciones, 
 
 # Apéndice
 
-## Material suplementario
-### Anexos de reproducción: método previo
+## Anexos de reproducción: Intento sin acceso al código {#sec-anexos}
 
 Los siguientes chunks corresponden a las versiones de reproducción utilizadas en los intentos de reproduccion previos a poder acceder al codigo; por lo que no se contaba con la información sobre el tratamiento de casos perdidos ni la ponderación por diseño muestral, lo que se traduce en resultado en algunos casos levemente diferente de los resultados del informe.
 
